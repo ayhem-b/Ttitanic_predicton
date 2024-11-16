@@ -20,7 +20,7 @@
   index-terms: (),
 
   // The article's paper size. Also affects the margins.
-  paper-size: "us-letter",
+  paper-size: "a4",
 
   // The path to a bibliography file if you want to cite some external
   // works.
@@ -40,7 +40,7 @@
     paper: paper-size,
     // The margins depend on the paper size.
     margin: if paper-size == "a4" {
-      (x: 41.5pt, top: 80.51pt, bottom: 89.51pt)
+      (x: 20pt, top: 80.51pt, bottom: 89.51pt)
     } else {
       (
         x: (50pt / 216mm) * 100%,
@@ -248,11 +248,7 @@
 ]
 
 // REMINDER
-#let reminder = align(center + bottom)[
-	#image("Images/reminder.png")
-	#rect[*#text(smallcaps("In each document, you have to insert well annotated screenshots of your code after being executed."))*]
-	]
-	
+
 /* TEMPLATE 
 #exo[Title][Content.]
 
