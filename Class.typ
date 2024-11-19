@@ -40,7 +40,7 @@
     paper: paper-size,
     // The margins depend on the paper size.
     margin: if paper-size == "a4" {
-      (x: 20pt, top: 80.51pt, bottom: 89.51pt)
+      (x: 20pt, top: 30.51pt, bottom: 30pt)
     } else {
       (
         x: (50pt / 216mm) * 100%,
@@ -76,22 +76,24 @@
   // RAW THEME
   set raw(theme: "Themes/Dracula.tmTheme")
   show raw: it => block(
- 	fill: rgb("#1d2433"),
+ 	fill: rgb("#173057"),
   	inset: 8pt,
   	radius: 5pt,
-  	text(fill: rgb("#a2aabc"), it)
+  	text(fill: rgb("#dddddd"), it)
   )
 
   // Configure lists.
   set enum(indent: 10pt, body-indent: 9pt)
   set list(indent: 10pt, body-indent: 9pt)
 
+  
+
   set page(footer: [
   *ISET Bizerte*
   #h(1fr)
   #counter(page).display(
     "— 1/1 —",
-    both: true,
+    both: false,
   )
 ])
 
@@ -111,13 +113,13 @@
       // First-level headings are centered smallcaps.
       // We don't want to number of the acknowledgment section.
       #let is-ack = it.body in ([Acknowledgment], [Acknowledgement])
-      #set align(center)
+      #set align()
       #set text(if is-ack { 10pt } else { 12pt })
       #show: smallcaps
       #v(20pt, weak: true)
       #if it.numbering != none and not is-ack {
         numbering("I.", deepest)
-        h(7pt, weak: true)
+        h(1pt, weak: false)
       }
       #it.body
       #v(13.75pt, weak: true)
@@ -127,7 +129,7 @@
       #set text(style: "italic")
       #v(10pt, weak: true)
       #if it.numbering != none {
-        numbering("A.", deepest)
+        numbering("1.", deepest)
         h(7pt, weak: true)
       }
       #it.body
