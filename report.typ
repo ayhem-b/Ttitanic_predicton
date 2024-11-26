@@ -44,8 +44,9 @@ import matplotlib.pyplot as plt
 == *Importing the data*
 ```py
 train_df = pd.read_csv('../titanic_Data/train.csv')
-
 ```
+#colbreak()
+
 == *Cleaning & Data preparation*
 === Data info 
 ```md 
@@ -85,6 +86,14 @@ train_df.head(9)
        caption: [First 9 examples],
     
 )
+#colbreak()
+=== removing unnecessary columns & filling missing data
 
+so in order to know what coluns has effect in the predection model we need to know what each one refers to 
 
+we are not going to use :
+
+- PassengerId 
+- Ticket
+- Cabin (it has a lot of missing data)
 
